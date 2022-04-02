@@ -1,5 +1,6 @@
 defmodule Dictionary do
-  def hello do
-    IO.puts "!!Hello world!!"
+  def word_list do
+    words = File.read!("assets/words.txt")
+    String.split(words, ~r/\n/, trim: true)
   end
 end
