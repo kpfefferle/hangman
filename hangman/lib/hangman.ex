@@ -7,8 +7,8 @@ defmodule Hangman do
   @type   tally :: %{
     turns_left: integer,
     game_state: state,
-    letters: list(String.t),
-    used: list(String.t),
+    letters:    list(String.t),
+    used:       list(String.t),
   }
 
   @spec new_game() :: game
