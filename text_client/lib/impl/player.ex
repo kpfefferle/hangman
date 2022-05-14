@@ -13,12 +13,12 @@ defmodule TextClient.Impl.Player do
 
   @spec interact(state) :: :ok
 
-  def interact({game, _tally = %{ game_state: :won }}) do
-    IO.puts "Congratulations, you won! The word was #{game_answer(game)}"
+  def interact({_game, tally = %{ game_state: :won }}) do
+    IO.puts "Congratulations, you won! The word was #{tally_answer(tally)}"
   end
 
-  def interact({game, %{ game_state: :lost }}) do
-    IO.puts "Sorry, you lost... the word was #{game_answer(game)}"
+  def interact({_game, tally = %{ game_state: :lost }}) do
+    IO.puts "Sorry, you lost... the word was #{tally_answer(tally)}"
   end
 
   def interact({ game, tally }) do
@@ -53,7 +53,7 @@ defmodule TextClient.Impl.Player do
     |> String.downcase()
   end
 
-  defp game_answer(game) do
-    game.letters |> Enum.join
+  defp tally_answer(tally) do
+    tally.letters |> Enum.join
   end
 end
